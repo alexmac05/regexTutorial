@@ -3,7 +3,7 @@ import re
 # STEP: ONE
 # TITLE: Do you have python working?
 # INSTRUCTIONS: uncomment the print statement and run it
-
+# HINT: if you get stuck, you can read this page https://docs.python.org/3/howto/regex.html
 # THE CODE:
 #print("Hello pyladies oakland! Together we can do anything!")
 
@@ -239,16 +239,77 @@ import re
 # INSTRUCTIONS: Match simple web domain names that begin with "www." and end with a ".com" suffix;
 # for example, www.yahoo.com. Extra credit: If your regex also supports other high-level domain names,
 # such as .edu, .net, (for example www.foothill.edu)
+# HINTS:
+# \d Matches any decimal digit, same as [0-9] and \D is the inverse of \d: do not match any numeric digit
+# \w Matches any alphanumeric character, same as [A-Za-z0-9_] and \W is the inverse of \w
+# (...) Match enclosed regex and save as a subgroup ex: f(oo|u)bar
+# EXAMPLES:
+# \w+-\d+ Alphanumeric string and number separated by a hyphen
+# \d{3}-\d{3}-\d{4} American-format telephone numbers with an area code prefix, as in 800-555-1212.
+# The {N} in the above means Match N occurrences of preceding regex
 
-
+#ANSWER
+# pattern = '\w+@\w+\.com'
 ######################################################################################################################
 
 
 #######################################################################################################################
 # STEP: eleven
-# TITLE: Create a regular expression exercise
-# INSTRUCTIONS: 
+# TITLE: demo of findall() and finditer()
+# INSTRUCTIONS: Explore the code below to learn about findall() and finditer() so you can do exercise twelve
+# NOTES: findall() looks for occurrences of a regex pattern and returns a list. The list will be empty if no
+# occurrences are found, but if successful, the list will consist of all matches found
+# HINT: https://docs.python.org/3/library/re.html#match-objects
+# and https://docs.python.org/3/howto/regex.html
+#results = re.findall('car', 'carry the barcardi to the car')
+#print(results)
 
+#s = 'This and that. So, what happens here? Does this entire string match? This and that.'
+#regex = r'(th\w+) and (th\w+)'
+#results = re.findall(regex,s,re.IGNORECASE)
+#print(results)
+
+#finditer() is a more memory-friendly alternative to findall()
+#returns an iterator instead of a list
+#iterator = re.finditer(regex, s, re.IGNORECASE)
+
+#for match in iterator:
+#    print(match.span())
+
+#print(s[0:13]) #This part of the string matches
+#print(s[69:82])
+#print(len(s),  ' is length of the string')
 
 ######################################################################################################################
 
+#######################################################################################################################
+# STEP: twelve
+# TITLE: An Example
+# INSTRUCTIONS: Make sure you have the file mbox-short.txt in the same directory as this python file, uncomment
+# the code and run it. This is an example to show you the power of regex. This file has a lot in it and this regex
+# (regular expression) extracts all the email addresses that are prefixed by the string 'From:'.
+# Assignment - change the code so that you collect from this file, all of the domains represented
+# domains - from the email address stephen.marquard@uct.ac.za, you should add uct.ac.za to the results list but
+# add it only once. Then add media.berkeley.edu only once. Make sure you have a full list of all of hte domains
+# where emails were sent FROM in this file
+# THE CODE:
+
+#import re - this is already done at the top.
+
+#results = []
+
+#hand = open('mbox-short.txt')
+
+#for line in hand:
+#    line = line.rstrip()
+#    if re.search('^From:', line):
+#        print(line + " LINE")
+
+######################################################################################################################
+
+
+#More exercises
+#1. from the file get timestamps. Sat, 5 Jan 2008 09:12:19 -0500 and then extract day, month, day of week, and time
+#2. Extract all timestamps from the file and find out the years. You want to understand what years these emails were sent
+#3. Extract from this file any IP addresses. 134.68.220.122 is an example of an IP address
+#4. Extract a list of all modified files from the file. And all added files from the file.
