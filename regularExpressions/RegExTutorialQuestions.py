@@ -13,36 +13,33 @@ import re
 # INSTRUCTIONS: Make sure you have the file mbox-short.txt in the same directory as this python file, uncomment
 # the code and run it. This is an example to show you the power of regex. This file has a lot in it and this regex
 # (regular expression) extracts all the email addresses that are prefixed by the string 'From:'.
+# NOTES: no need to import re - this is already done at the top of this file
 
 # THE CODE:
 
-#import re - this is already done at the top.
+#with open('mbox-short.txt') as hand:
+#    for line in hand:
+#        line = line.rstrip()
+#        if re.search('^From:', line):
+#            print(line + " Line")
 
-#results = []
-
-#hand = open('mbox-short.txt')
-
-#for line in hand:
-#    line = line.rstrip()
-#    if re.search('^From:', line):
-#        print(line + "LINE")
 
 ######################################################################################################################
 
 
 #######################################################################################################################
 # STEP: Three
-# TITLE: The match function
+# TITLE: The match function vs. the search function
 # INSTRUCTIONS: Change the regExString to match any string that starts with a number
-# use the cheatsheet for ideas and also use the website https://regex101.com/ as a tester for your regex
-# HINT: the regEx for all lower case is r"[a-z]" and for numbers it is similar and you need the brackets
-# Notes: Match is used for looking in the beginning of strings for matches. The next exercise involves
-# the search function, which is used to find patterns in the middle of a string, rather than the beginning
+# use the cheatsheet for ideas
+# HINT: the regEx for all lower case is r"[a-z]". For numbers it is similar and you need the brackets
+# Notes: Match is used for looking in the beginning of strings for matches. The next exercise (exercise 4) involves
+# the search function, which is used to find patterns in the entire string, rather than just the beginning
+#
 # THE CODE:
 
-#inputString = r"From: alexmac2010@gmail.com"
-#regExString = r"^From:"
-#inputStringFails = "From alexmac2010@gmail.com I am missing the : in From"
+#inputString = r"2 - this string starts with number"
+#regExString = r"Write your regular expression here"
 
 #m = re.match(regExString, inputString)
 
@@ -177,6 +174,7 @@ import re
 
 #inputString = r'Garcia, B. ' #Should pass
 #inputStringFails = r'alexmac2010@gmail.com' #should fail
+#inputStringFailsTWO = r'McFerron A.' #Fails because there isn't a comma
 
 #regExString = r'YOU CREATE THE REGEX'
 
@@ -212,6 +210,7 @@ import re
 #inputString3 = '\nend' # do not use r'' with the newline character
 #print(inputString3) #notice it has a newline character '\n'
 #inputString4 = r"The end."
+#inputstring7 = '\tend'
 
 #regExString2 = '3\.14'
 #inputString5 = '3.14'
@@ -221,7 +220,7 @@ import re
 #m = re.match(regExString1, inputString1)
 #m = re.search(regExString1, inputString4)
 #m = re.match(regExString2, inputString6)
-
+#m = re.match(regExString1, inputstring7)
 
 #if m is not None:
 #    print(m.group())
@@ -237,16 +236,31 @@ import re
 # STEP: ten
 # TITLE: Create a regular expression exercise
 # INSTRUCTIONS: Match simple web domain names that begin with "www." and end with a ".com" suffix;
-# for example, www.yahoo.com. Extra credit: If your regex also supports other high-level domain names,
-# such as .edu, .net, (for example www.foothill.edu)
+# for example, www.yahoo.com. The string has a few web addresses but you want only the ones that follow the
+# www. ...... .com pattern. You want to ignore https://10.10.10.10 and .net and .edu.
+
+# Extra credit: Find everything that isn't .com
+
 # HINTS:
 # \d Matches any decimal digit, same as [0-9] and \D is the inverse of \d: do not match any numeric digit
 # \w Matches any alphanumeric character, same as [A-Za-z0-9_] and \W is the inverse of \w
 # (...) Match enclosed regex and save as a subgroup ex: f(oo|u)bar
+#
 # EXAMPLES:
 # \w+-\d+ Alphanumeric string and number separated by a hyphen
 # \d{3}-\d{3}-\d{4} American-format telephone numbers with an area code prefix, as in 800-555-1212.
 # The {N} in the above means Match N occurrences of preceding regex
+
+
+#inputString1 = r'www.foothill.com, https://www.google.com, www.myschool.edu, www.happytimes.net, https://10.10.10.10'
+#regExString1 = r'PUT YOUR REGEX HERE'
+
+#if m is not None:
+#    print(m.group())
+#    print(type(m))
+#else:
+#    print('m is None, so no match was found')
+
 
 #ANSWER
 # pattern = '\w+@\w+\.com'
