@@ -50,6 +50,10 @@ import re
 #    print('m is None, so no match was found')
 
 
+#Answer
+#inputString = r"2From: alexmac2010@gmail.com
+#regExString = r"[0-9]"
+
 ######################################################################################################################
 
 
@@ -71,6 +75,10 @@ import re
 #else:
 #    print('m is None, so no match was found')
 
+
+#Answer
+#match() checks from the beginning of the string
+#search() checks the entire string for the pattern. Search() evaluates a string from left to right
 
 ######################################################################################################################
 
@@ -95,6 +103,9 @@ import re
 #    print('m is None, so no match was found')
 
 
+#Answer
+# m = re.search(regExString, inputString, re.IGNORECASE)
+
 ######################################################################################################################
 
 #######################################################################################################################
@@ -116,6 +127,10 @@ import re
 #else:
 #    print('m is None, so no match was found')
 
+
+#Answer
+#regExString = r'bat|bet|bit|but|hat|hit|hut'
+#possible answer could also be [bh][aiu]t
 
 ######################################################################################################################
 
@@ -141,6 +156,11 @@ import re
 #else:
 #    print('m is None, so no match was found')
 
+
+#Answer
+#Possible answers
+#regExString = r'\S+\s\S+'
+#regExString = r'[A-Za-z-]+ [A-Za-z-]+'
 ######################################################################################################################
 
 
@@ -167,6 +187,9 @@ import re
 #    print('m is None, so no match was found')
 
 
+#Answer
+#Possible answers
+#regExString = r'[A-Za-z-]+, [A-Za-z]'
 ######################################################################################################################
 
 
@@ -238,6 +261,9 @@ import re
 #else:
 #    print('m is None, so no match was found')
 
+
+#ANSWER
+# pattern = '\w+@\w+\.com'
 ######################################################################################################################
 
 
