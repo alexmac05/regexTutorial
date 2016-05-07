@@ -1,4 +1,5 @@
 #STEP: six
+
 # TITLE: match more than one string
 # INSTRUCTIONS: Match more than one string. Change the regular expression to return a match object
 # if any of the following strings are matched: "but", "hat", "hit", "hut"
