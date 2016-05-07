@@ -1,0 +1,44 @@
+#STEP: six
+# TITLE: match more than one string
+# INSTRUCTIONS: Match more than one string. Change the regular expression to return a match object
+# if any of the following strings are matched: "but", "hat", "hit", "hut"
+#
+# THE CODE:
+
+# inputString = 'He bit me! Oh and he is a bat!'
+# regExString = r'bat|bet|bit'  
+
+# m = re.search(regExString, inputString)  ## only search first word matching
+# if m is not None: ## if m is not empty
+#     print(m.group())
+#     print(type(m))
+# else:
+#     print('m is None, so no match was found')
+
+# ################
+
+# inputString = 'He bit me! Oh and he is a bat!'
+# regExString = r'bat|bet|bit'  
+
+# m = re.finditer(regExString, inputString) ## Return objects
+# if m is not None: ## if m is not empty
+# 	print item.group()
+# else:
+#     print('m is None, so no match was found')
+
+################
+
+inputString = 'He bit me! Oh and he is a bat!'
+regExString = r'bat|bet|bit' 
+
+m = re.findall(regExString, inputString)
+
+if m is not None: ## if m is not empty
+    for item in m:
+    	#####print item.group()
+else:
+    	print('m is None, so no match was found')
+
+
+######################################################################################################################
+
